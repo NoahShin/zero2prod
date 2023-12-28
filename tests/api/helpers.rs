@@ -77,7 +77,6 @@ pub async fn spawn_app() -> TestApp {
     // Randomise configuration to ensure test isolation
     let configuration = {
         let mut c = get_configuration().expect("Failed to read configuration.");
-
         // Use a different database for each test case
         c.database.database_name = Uuid::new_v4().to_string();
         // Use a random OS port
