@@ -51,12 +51,12 @@ impl ResponseError for SubscribeError {
 }
 
 #[tracing::instrument(
-name = "Adding a new subscriber",
-skip(form, pool, email_client, base_url),
-fields(
-subscriber_email = %form.email,
-subscriber_name = %form.name
-)
+    name = "Adding a new subscriber",
+    skip(form, pool, email_client, base_url),
+    fields(
+        subscriber_email = %form.email,
+        subscriber_name = %form.name
+    )
 )]
 pub async fn subscribe(
     form: web::Form<FormData>,
